@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Coding Quiz</title>
 
-    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./starter/assets/css/styles.css" />
   </head>
 
   <body>
-    <div class="scores"><a href="highscores.html">View Highscores</a></div> <!--link to highscores HTML-->
+    <div class="scores"><a href="./highscores.html">View Highscores</a></div> <!--link to highscores HTML-->
 
     <div class="timer">Time: <span id="time">0</span></div>
 
@@ -19,8 +19,8 @@
         <h1>Coding Quiz Challenge</h1>
         <p>
           Try to answer the following code-related questions within the time
-          limit. Keep in mind that incorrect answers will penalize your
-          score/time by ten seconds!
+          limit. If you get an answer wrong, you will be deducted 10 seconds
+          from your score. Your final score will be equal to the time left.
         </p>
         <button id="start">Start Quiz</button>
       </div>
@@ -42,8 +42,8 @@
       <div id="feedback" class="feedback hide"></div>
     </div>
 
-    <script src="./assets/js/questions.js"></script>
-    <script src="./assets/js/logic.js"></script>
+    <script src="./JS/questions.js"></script>
+    <script src="./JS/logic.js"></script>
   </body>
 </html>
 

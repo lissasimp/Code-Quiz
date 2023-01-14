@@ -1,13 +1,40 @@
 //when game opened, timer set to 0
-//when start button is clicked, 
-//move to question 1
-//start timer. Event Listener "onclick"
+
+var timeEl = document.querySelector(".timer");
+var mainEl = document.getElementById("#time");
+let start = document.querySelector('#start');
+
+var timerCount;
+
+// The startGame function is called when the start button is clicked
+function startGame() {
+  timerCount = 60;
+  // Prevents start button from being clicked when round is in progress
+  startTimer()
+}
+
+// The setTimer function starts and stops the timer and triggers winGame() and loseGame()
+function startTimer() {
+  // Sets timer
+  timer = setInterval(function() {
+    timerCount--;
+    if (timerCount === 0 || quizQuestions.length === 0) {
+        clearInterval(timer);
+        winGame();
+      }
+    }
+    }; 1000
+
+// Attach event listener to start button to call startGame function on click
+startButton.addEventListener("click", startGame);
 
 
 
 
-//display question with 4 answer choices - stored as buttons
-//When user selects the answer, next question appears
+
+
+
+
 //feedback at bottom of page appears with - correct/wrong - but then disappears
 
 
