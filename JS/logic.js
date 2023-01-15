@@ -1,33 +1,79 @@
-//when game opened, timer set to 0
+var scores = document.querySelector("scores");
+var timerElement = document.querySelector("#time");
+var startButton = document.querySelector("#start");
+var startScreen = document.querySelector("#start-screen");
+// var screen = document.querySelector(".wrapper"); //do I need this variable?
+var questions = document.querySelector("#questions");
+var hideScreen = document.querySelector(".hide");
+var questionTitle = document.querySelector("#question-title");
+var choices = document.querySelector("#choices"); //when user clicks choice, correct or incorrect
+var endScreen = document.querySelector("#end-screen");
+var score = document.querySelector("#final-score");
+var initials = document.querySelector("#initials"); //max 3?
+var submitBtn = document.querySelector("#submit");
+var goBackBtn = document.querySelector("[href=index.html]");
+var viewScores = document.querySelector("[href=./highscores.html]") //links to high score page
+var scores = document.querySelector(".scores"); //holds scores?
+var highScoresList = document.querySelector("#highscores")//ol so will need to use event delegation to add high scores
+var clearBtn = document.querySelector("#clear");
+// do I need to target wrappers?
+//when to use class and when to use id in querySelector?
 
-var timeEl = document.querySelector(".timer");
-var mainEl = document.getElementById("#time");
-let start = document.querySelector('#start');
 
+var correctAnswerIndex 
+var timer;
 var timerCount;
+var quizQuestions;
+var finalScore; //holds the time left
+var penalty; //takes 10 seconds off the time if
 
-// The startGame function is called when the start button is clicked
+// The startGame function is called when the start button is clicked.
+//Timer changes to 60 seconds and then starts counting down
+//hide questions until start button is clicked
+//when start button is clicked, hide start screen
 function startGame() {
   timerCount = 60;
-  // Prevents start button from being clicked when round is in progress
   startTimer()
 }
+
 
 // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
 function startTimer() {
   // Sets timer
   timer = setInterval(function() {
     timerCount--;
+    timerElement.textContent = timerCount;
+    if (timerCount >= 0) {
+      //if counter reaches 0 or questions run out then timer will stop
     if (timerCount === 0 || quizQuestions.length === 0) {
         clearInterval(timer);
-        winGame();
+        //takes player to enter hight scores
+        winGame(); //high scores function? link?
       }
     }
-    }; 1000
+    }, 1000);
+
+
+//Questions
+//Display first question and answer choices
+//When player clicks on choice:
+//If correct will display feedback correct (plus well done? text content?), 
+//hide current screen and move to next
+//If incorrect will display feedback incorrect (plus bad luck?), and take 10 seconds off time
+//hide current screen and move to next screen
+//correct/incorrect should only be displayed for a couple of seconds
 
 // Attach event listener to start button to call startGame function on click
 startButton.addEventListener("click", startGame);
 
+//Attach an event listener to answer options
+choices.addEventListener("click", ) // need to create an answer function as my second parameter
+
+
+//Attach an event listener to submit button
+submitBtn.addEventListener("click",     ) // create a submit function as 2nd parameter
+
+//Attach an event listener to high scores
 
 
 
@@ -72,4 +118,4 @@ startButton.addEventListener("click", startGame);
 
 
 
-
+};
