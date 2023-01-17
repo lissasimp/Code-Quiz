@@ -1,57 +1,81 @@
-var scores = document.querySelector("scores");
-var timerElement = document.querySelector("#time");
-var startButton = document.querySelector("#start");
+// var scores = document.querySelector("scores");
+// var timerElement = document.querySelector("#time");
+var startButton = document.getElementById("start");
 var startScreen = document.querySelector("#start-screen");
 // var screen = document.querySelector(".wrapper"); //do I need this variable?
-var questions = document.querySelector("#questions");
-var hideScreen = document.querySelector(".hide");
-var questionTitle = document.querySelector("#question-title");
-var choices = document.querySelector("#choices"); //when user clicks choice, correct or incorrect
-var endScreen = document.querySelector("#end-screen");
-var score = document.querySelector("#final-score");
-var initials = document.querySelector("#initials"); //max 3?
-var submitBtn = document.querySelector("#submit");
-var goBackBtn = document.querySelector("[href=index.html]");
-var viewScores = document.querySelector("[href=./highscores.html]") //links to high score page
-var scores = document.querySelector(".scores"); //holds scores?
-var highScoresList = document.querySelector("#highscores")//ol so will need to use event delegation to add high scores
-var clearBtn = document.querySelector("#clear");
+var questionContainerEl = document.getElementById("question-container");
+// var hideScreen = document.querySelector(".hide");
+var questionElement = document.getElementById("question-title");
+var answerElement= document.getElementById("choices"); //when user clicks choice, correct or incorrect
+// var endScreen = document.querySelector("#end-screen");
+// var score = document.querySelector("#final-score");
+// var initials = document.querySelector("#initials"); //max 3?
+// var submitBtn = document.querySelector("#submit");
+// var goBackBtn = document.querySelector("[href=index.html]");
+// var viewScores = document.querySelector("[href=./highscores.html]") //links to high score page
+// var scores = document.querySelector(".scores"); //holds scores?
+// var highScoresList = document.querySelector("#highscores")//ol so will need to use event delegation to add high scores
+// var clearBtn = document.querySelector("#clear");
 // do I need to target wrappers?
 //when to use class and when to use id in querySelector?
 
 
-var correctAnswerIndex 
-var timer;
-var timerCount;
-var quizQuestions;
-var finalScore; //holds the time left
-var penalty; //takes 10 seconds off the time if
+// var correctAnswerIndex 
+// var timer;
+// var timerCount;
+// var quizQuestions;
+// var finalScore; //holds the time left
+// var penalty; //takes 10 seconds off the time if
 
 // The startGame function is called when the start button is clicked.
 //Timer changes to 60 seconds and then starts counting down
 //hide questions until start button is clicked
 //when start button is clicked, hide start screen
+
+var shuffledQuestions, currentQuestionIndex;
+
 function startGame() {
-  timerCount = 60;
-  startTimer()
-}
+//   timerCount = 60;
+//   startTimer()
+console.log("started")
+//this ahides start screen once game begins
+startScreen.classList.add('hide');
+currentQuestionIndex=0; //starts question array from first question
+shuffledQuestions= quizQuestions.sort(() => Math.random() - .5) //this will create negative and postive numbers so will create a random array
+
+questionContainerEl.classList.remove('hide');
+nextQuestion();
+
+};
+function nextQuestion() {
+  showQuestion(shuffledQuestions[currentQuestionIndex])
+};
+
+function showQuestion(questionTitle) {
+  questionElement.innerText = questionTitle.questionTitle
+  
+};
+// }
+// }
+
+// function selectAnswer() {
 
 
 // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
-function startTimer() {
-  // Sets timer
-  timer = setInterval(function() {
-    timerCount--;
-    timerElement.textContent = timerCount;
-    if (timerCount >= 0) {
+// function startTimer() {
+//   // Sets timer
+//   timer = setInterval(function() {
+//     timerCount--;
+//     timerElement.textContent = timerCount;
+//     if (timerCount >= 0) {
       //if counter reaches 0 or questions run out then timer will stop
-    if (timerCount === 0 || quizQuestions.length === 0) {
-        clearInterval(timer);
-        //takes player to enter hight scores
-        winGame(); //high scores function? link?
-      }
-    }
-    }, 1000);
+    // if (timerCount === 0 || quizQuestions.length === 0) {
+    //     clearInterval(timer);
+    //     //takes player to enter hight scores
+    //     winGame(); //high scores function? link?
+    //   }
+    // }
+    // }, 1000);
 
 
 //Questions
@@ -63,15 +87,16 @@ function startTimer() {
 //hide current screen and move to next screen
 //correct/incorrect should only be displayed for a couple of seconds
 
-// Attach event listener to start button to call startGame function on click
-startButton.addEventListener("click", startGame);
+//event listener to start game
+startButton.addEventListener('click', startGame);
+
 
 //Attach an event listener to answer options
-choices.addEventListener("click", ) // need to create an answer function as my second parameter
+// choices.addEventListener("click", ) // need to create an answer function as my second parameter
 
 
-//Attach an event listener to submit button
-submitBtn.addEventListener("click",     ) // create a submit function as 2nd parameter
+// //Attach an event listener to submit button
+// submitBtn.addEventListener("click", ) // create a submit function as 2nd parameter
 
 //Attach an event listener to high scores
 
@@ -116,6 +141,3 @@ submitBtn.addEventListener("click",     ) // create a submit function as 2nd par
 //link this file to the question file - questions will need to be a variable
 
 
-
-
-};
