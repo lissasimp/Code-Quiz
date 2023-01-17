@@ -24,7 +24,7 @@ To help you become familiar with these tests and give you a chance to apply the 
 - **THEN** I can save my initials and score
 
 ## Usage
-
+- **Deployed Application** https://lissasimp.github.io/Code-Quiz/
 ![Image of code quiz ](./assets/Working%20Quiz.PNG)
 
 ## Credits
