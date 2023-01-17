@@ -53,7 +53,16 @@ function nextQuestion() {
 
 function showQuestion(questionTitle) {
   questionElement.innerText = questionTitle.questionTitle
-  
+  questionTitle.choices.forEach(answer => {
+  var button = document.createElement('button')
+  button.innerText = answer.text
+  button.classList.add('btn')
+    if(answer.correct) {
+      button.dataset.correct = answer.correct
+    }
+    // button.addEventListener('click', selectAnswer)
+    answerElement.appendChild(button)
+})
 };
 // }
 // }
