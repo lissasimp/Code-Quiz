@@ -25,7 +25,7 @@ To help you become familiar with these tests and give you a chance to apply the 
 
 ## Usage
 
-![Image of code quiz ](./Images)
+![Image of code quiz ](./assets/Working%20Quiz.PNG)
 
 ## Credits
 The following websites were used to support this project:
