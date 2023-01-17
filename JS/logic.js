@@ -1,10 +1,9 @@
 // var scores = document.querySelector("scores");
-// var timerElement = document.querySelector("#time");
+var timerElement = document.querySelector("#time");
 var startButton = document.getElementById("start");
 var startScreen = document.querySelector("#start-screen");
 // var screen = document.querySelector(".wrapper"); //do I need this variable?
 var questionContainerEl = document.getElementById("question-container");
-// var hideScreen = document.querySelector(".hide");
 var questionElement = document.getElementById("question-title");
 var answerElement= document.getElementById("choices"); //when user clicks choice, correct or incorrect
 // var endScreen = document.querySelector("#end-screen");
@@ -20,9 +19,8 @@ var answerElement= document.getElementById("choices"); //when user clicks choice
 //when to use class and when to use id in querySelector?
 
 
-// var correctAnswerIndex 
-// var timer;
-// var timerCount;
+var timer;
+var timerCount;
 // var quizQuestions;
 // var finalScore; //holds the time left
 // var penalty; //takes 10 seconds off the time if
@@ -34,9 +32,9 @@ var answerElement= document.getElementById("choices"); //when user clicks choice
 
 var shuffledQuestions, currentQuestionIndex;
 
-function startGame() {
-//   timerCount = 60;
-//   startTimer()
+function startGame(start) {
+  timerCount = 60;
+  // startTimer()
 console.log("started")
 //this ahides start screen once game begins
 startScreen.classList.add('hide');
@@ -72,19 +70,19 @@ function showQuestion(questionTitle) {
 
 // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
 // function startTimer() {
-//   // Sets timer
-//   timer = setInterval(function() {
-//     timerCount--;
-//     timerElement.textContent = timerCount;
-//     if (timerCount >= 0) {
-      //if counter reaches 0 or questions run out then timer will stop
-    // if (timerCount === 0 || quizQuestions.length === 0) {
-    //     clearInterval(timer);
-    //     //takes player to enter hight scores
-    //     winGame(); //high scores function? link?
-    //   }
-    // }
-    // }, 1000);
+  // Sets timer
+  timer = setInterval(function() {
+    timerCount--;
+    timerElement.textContent = timerCount;
+    if (timerCount >= 0) {
+      // if counter reaches 0 or questions run out then timer will stop
+    if (timerCount === 0 || quizQuestions.length === 0) {
+        clearInterval(timer);
+        //takes player to enter hight scores
+        winGame(); //high scores function? link?
+      }
+    }
+    }, 1000);
 
 
 //Questions
